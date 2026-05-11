@@ -1,0 +1,6 @@
+{
+  "name": "AgendaFlow",
+  "description": "Transform any document into a structured, time-stamped meeting agenda and stakeholder map using AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
