@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Trash2 } from "lucide-react";
 import { Onboarding } from "./Onboarding";
 import { MobilePreview } from "./MobilePreview";
+import { BedrockTest } from "./BedrockTest";
 
 export const Dashboard = () => {
   const { user, profile } = useAuth();
@@ -42,6 +43,7 @@ export const Dashboard = () => {
             </div>
           ))}
         </div>
+        <BedrockTest />
       </div>
       <MobilePreview userId={user?.uid} username={profile?.username} />
     </div>
