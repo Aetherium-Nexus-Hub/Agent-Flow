@@ -37,6 +37,44 @@ async function startServer() {
     }
   });
 
+  // GitHub Resonance Scan Proxy Route
+  app.post("/api/resonance/scan", async (req, res) => {
+    try {
+      const { repo, branch } = req.body;
+      if (!repo || !branch) {
+        return res.status(400).json({ error: "Repository and branch are required" });
+      }
+
+      console.log(`Forwarding resonance scan request for ${repo} [${branch}] to Aetherium Nexus...`);
+      const response = await fetch("https://aetheriumnexus.store/api/source/v0.1/resonance.scan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ repo, branch })
+      });
+
+      const statusCode = response.status;
+      const text = await response.text();
+      let parseResult: any;
+      try {
+        parseResult = JSON.parse(text);
+      } catch (e) {
+        parseResult = { rawText: text };
+      }
+
+      console.log(`Aetherium Nexus node returned status ${statusCode}`);
+      res.status(statusCode).json({
+        ok: response.ok,
+        status: statusCode,
+        data: parseResult
+      });
+    } catch (error: any) {
+      console.error("Resonance Scan Proxy Error:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

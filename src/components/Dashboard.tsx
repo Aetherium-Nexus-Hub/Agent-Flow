@@ -7,6 +7,7 @@ import { Trash2 } from "lucide-react";
 import { Onboarding } from "./Onboarding";
 import { MobilePreview } from "./MobilePreview";
 import { BedrockTest } from "./BedrockTest";
+import { ResonanceScan } from "./ResonanceScan";
 
 export const Dashboard = () => {
   const { user, profile } = useAuth();
@@ -44,6 +45,7 @@ export const Dashboard = () => {
           ))}
         </div>
         <BedrockTest />
+        <ResonanceScan />
       </div>
       <MobilePreview userId={user?.uid} username={profile?.username} />
     </div>
