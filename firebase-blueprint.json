@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "Meeting": {
+      "title": "Meeting",
+      "description": "Represents an AI-parsed meeting with a structured agenda and stakeholder map",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The custom title generated for the meeting"
+        },
+        "objective": {
+          "type": "string",
+          "description": "The main goal or objective of the meeting"
+        },
+        "markdownAgenda": {
+          "type": "string",
+          "description": "A beautiful Markdown-formatted manual/agenda summary of the meeting"
+        },
+        "notes": {
+          "type": "string",
+          "description": "The original meeting transcript or notes uploaded by the user"
+        },
+        "owner": {
+          "type": "string",
+          "description": "The owner User ID"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp when the meeting was processed"
+        },
+        "stakeholders": {
+          "type": "array",
+          "description": "Rich profile mapping of meeting participants, roles, dynamics, and assignments"
+        },
+        "timeline": {
+          "type": "array",
+          "description": "Suggested timeline sequence of agenda topics and presenters"
+        }
+      },
+      "required": ["title", "owner", "createdAt", "stakeholders", "timeline"]
+    }
+  },
+  "firestore": {
+    "/meetings/{meetingId}": {
+      "schema": "Meeting",
+      "description": "User documents containing parsed meeting agendas and dynamic stakeholder visualizer configurations"
+    }
+  }
+}

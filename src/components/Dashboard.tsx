@@ -8,6 +8,8 @@ import { Onboarding } from "./Onboarding";
 import { MobilePreview } from "./MobilePreview";
 import { BedrockTest } from "./BedrockTest";
 import { ResonanceScan } from "./ResonanceScan";
+import { AgendaInput } from "./AgendaInput";
+import { AetherChess } from "./AetherChess";
 
 export const Dashboard = () => {
   const { user, profile } = useAuth();
@@ -44,6 +46,10 @@ export const Dashboard = () => {
             </div>
           ))}
         </div>
+        
+        <AetherChess />
+        
+        <AgendaInput />
         <BedrockTest />
         <ResonanceScan />
       </div>
