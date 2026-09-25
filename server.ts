@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import path from "path";
 import cors from "cors";
@@ -134,7 +135,7 @@ async function startServer() {
       });
 
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: `Analyze the following meeting notes/transcript and construct a complete, professional, beautifully-structured meeting agenda. The agenda should include:
 - A clear, catchy title for the meeting
 - Objective/main goal of the meeting
@@ -177,7 +178,7 @@ ${notes}`,
       });
 
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: `Analyze the following meeting transcript, notes, or discussion logs. Construct a comprehensive structured meeting response:
 1. Create a logical title and clear objective.
 2. Formulate a complete, beautifully structured Markdown agenda suited for reading.

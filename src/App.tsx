@@ -17,7 +17,7 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-      <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/:username" element={<PublicProfile />} />
     </Routes>
   );

@@ -46,6 +46,9 @@
     "/meetings/{meetingId}": {
       "schema": "Meeting",
       "description": "User documents containing parsed meeting agendas and dynamic stakeholder visualizer configurations"
+    },
+    "/aether_events/{eventId}": {
+      "description": "Hardened verified chess events and telemetry ledger"
     }
   }
 }
